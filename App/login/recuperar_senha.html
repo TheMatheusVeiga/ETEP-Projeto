@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>Mercado APP</title>
+</head>
+<link rel="stylesheet" href="login_estilo.css">
+
+<body>
+    <h2>Mercado APP</h2>
+    <form>
+        <h3>Recupere a sua Senha</h3>
+        <input id="senha" type="password" nome="senha" placeholder="Digite sua nova senha">
+        <input type="submit" nome="acao" placeholder="Nova Senha" onclick="nova(); return false">
+    </form>
+</body>
+
+<script>
+   function nova(){
+   var senha = document.getElementById("senha").value;
+
+   if(senha != "admin"){
+       alert("Senha alterada com sucesso");
+       location.href = "login.html";
+   }
+   }
+</script>
+
+</html>

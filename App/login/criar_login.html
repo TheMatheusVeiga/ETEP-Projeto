@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Mercado APP</title>
+</head>
+<link rel="stylesheet" href="login_estilo.css">
+
+<body>
+    <h2>Mercado APP</h2>
+    <form>
+        <h3>Cadastre um novo usuário</h3>
+        <input id="login" type="text" nome="email" placeholder="Insira um e-mail válido">
+        <input id="senha" type="password" nome="senha" placeholder="Digite uma senha">
+        <h4>Selecione o perfil do usuário</h4>
+        <select id="perfil" name="perfil">
+            <option value="cliente">Cliente</option>
+            <option value="administrador">Administrador</option>
+        </select>
+        <input type="submit" nome="acao" placeholder="Nova Senha" onclick="nova(); return false">
+    </form>
+</body>
+
+<script>
+   function nova(){
+   var senha = document.getElementById("senha").value;
+   var login = document.getElementById("login").value;
+   var perfil = document.getElementById("perfil").value;
+
+   if(senha != "admin" && login != "admin"){
+       alert("Login criado com sucesso");
+       location.href = "index.html";
+   }
+   }
+</script>
+
+</html>
