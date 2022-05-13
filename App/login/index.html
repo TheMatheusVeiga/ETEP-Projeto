@@ -18,7 +18,7 @@
 <body>
     <nav>
         <div class="nav-wrapper">
-         <a href="#" class="brand-logo">Mercado App</a>
+         <a href="index.html" class="brand-logo">Mercado App</a>
          <a href="#" data-activates="menu-mobile" class="button-collapse">
             <i class="material-icons">menu</i>
          </a>
@@ -41,6 +41,11 @@
                 <input id="stock" class="input-text" placeholder="Estoque" type="number" required />
                 <input class="input-btn" type="submit" value="Cadastrar produto" onclick="return addToTable()" />
             </div>
+            <span id="btnUpdate" style="display: none;">
+				<span id="inputIDUpdate"></span>
+				<button onclick="updateData();" class="btn btn-default">Salvar</button>
+				<button onclick="resetForm();" class="btn btn-default">Cancelar</button>
+			</span>
         </form>
         <table id="myTable">
             <tr id="0">

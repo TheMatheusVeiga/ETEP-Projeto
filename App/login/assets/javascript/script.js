@@ -50,6 +50,35 @@ function removeToTable(id) {
     return false;
 }
 
+//Função para editar a linha 
+function updateData(){
+	if(!validation()){
+		return;
+	}
+	var id = document.getElementById("idUpdate").value;
+	var produto = document.getElementById("product").value;
+	var preco = document.getElementById("price").value;
+	var tipo = document.getElementById("type").value;
+    var estoque = document.getElementById("stock").value;
+
+	list[id] = {"product":produto, "stock":estoque, "price":preco, "type":tipo};
+	resetForm();
+	setList(list);
+}
+
+//botões de editar
+function setUpdate(id){
+	var obj = list[id];
+	document.getElementById("product").value = obj.produto;
+	document.getElementById("stock").value = obj.estoque;
+	document.getElementById("price").value = obj.preco;
+    document.getElementById("type").value = obj.tipo;
+	document.getElementById("btnUpdate").style.display = "inline-block";
+	document.getElementById("btnAdd").style.display = "none";
+
+	document.getElementById("inputIDUpdate").innerHTML = '<input id="idUpdate" type="hidden" value="'+id+'">';
+}
+
 $(function(){
     $(".button-collapse").sideNav();
 });
