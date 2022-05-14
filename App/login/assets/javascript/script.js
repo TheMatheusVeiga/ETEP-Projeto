@@ -1,3 +1,16 @@
+//criando a tabela
+function setList(list){
+	var table = '<thead><tr><td>Produto</td><td>Quantidade</td><td>Preço</td><td>Ação</td></tr></thead><tbody>';
+	for(var key in list){
+		table += '<tr><td>'+ formatProduct(list[key].product) +'</td><td>'+ formatStock(list[key].stock) +'</td><td>'+ formatPrice(list[key].price) + '</td><td>'+ formatType(list[key].type) + '</td><td><button class="btn btn-default" onclick="setUpdate('+key+');">Editar</button> <button class="btn btn-default" onclick="deleteData('+key+');">Excluir</button></td></tr>';
+	}
+	table += '</tbody>';
+
+	document.getElementById('listTable').innerHTML = table;
+	getTotal(list);
+	saveListStorage(list);
+}
+
 //Função para adicionar uma nova linha na tabela
 function addToTable() {
 
@@ -20,6 +33,27 @@ function addToTable() {
 
     //Criando o codigo do botão para remover a linha
     let btnCode = "<button class='remove-btn' onclick='removeToTable(this)'>Remover | Editar</button>";
+
+    //formatando o nome do produto
+    function formatProduct(product){
+	    var str = desc.toLowerCase();
+	    str = str.charAt(0).toUpperCase() + str.slice(1);
+	    return str;
+    }
+
+    //formatando a quantidade
+    function formatStock(stock){
+	    return parseInt(stock);
+    }
+
+    //formatando o preço
+    function formatValue(value){
+	    var str = parseFloat(value).toFixed(2) + "";
+	    str = str.replace(".",",");
+	    str = "$ " + str;
+	    return str;
+    }
+
 
     //Preenchendo as celulas da linha
     cell1.innerHTML = tableSize;
@@ -77,6 +111,19 @@ function setUpdate(id){
 	document.getElementById("btnAdd").style.display = "none";
 
 	document.getElementById("inputIDUpdate").innerHTML = '<input id="idUpdate" type="hidden" value="'+id+'">';
+}
+
+//limpa os campos de editar
+function resetForm(){
+	document.getElementById("product").value = "";
+	document.getElementById("stock").value = "";
+	document.getElementById("price").value = "";
+    document.getElementById("type").value = "";
+	document.getElementById("btnUpdate").style.display = "none";
+	document.getElementById("btnAdd").style.display = "inline-block";
+	
+	document.getElementById("inputIDUpdate").innerHTML = "";
+	document.getElementById("errors").style.display = "none";
 }
 
 $(function(){

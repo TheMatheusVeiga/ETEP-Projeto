@@ -16,7 +16,7 @@ function getTotal(list){
 
 //criando a tabela
 function setList(list){
-	var table = '<thead><tr><td>Description</td><td>Amount</td><td>Value</td><td>Action</td></tr></thead><tbody>';
+	var table = '<thead><tr><td>Produto</td><td>Quantidade</td><td>Valor</td><td>Action</td></tr></thead><tbody>';
 	for(var key in list){
 		table += '<tr><td>'+ formatDesc(list[key].desc) +'</td><td>'+ formatAmount(list[key].amount) +'</td><td>'+ formatValue(list[key].value) +'</td><td><button class="btn btn-default" onclick="setUpdate('+key+');">Edit</button> <button class="btn btn-default" onclick="deleteData('+key+');">Delete</button></td></tr>';
 	}
@@ -43,7 +43,7 @@ function formatAmount(amount){
 function formatValue(value){
 	var str = parseFloat(value).toFixed(2) + "";
 	str = str.replace(".",",");
-	str = "$ " + str;
+	str = "R$ " + str;
 	return str;
 }
 

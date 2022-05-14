@@ -1,6 +1,6 @@
 function setConfig(){
 	var texts = {
-		"title":"Carrinho de Compras"
+		"title":"Mercado App"
 	};
 	document.title = texts.title;
 	document.getElementById("navTitle").innerHTML = texts.title;
